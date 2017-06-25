@@ -1,0 +1,51 @@
+
+#include<iostream>
+#include<cstring>
+#include<cstdlib>
+#include<cstdio>
+#include<string>
+#include<cmath>
+#include<algorithm>
+using namespace std;
+const int maxn=128+10;
+
+char a[maxn]={'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+char x[maxn][maxn], y[maxn][maxn];
+string s;
+
+void Init()
+{
+	for(int i='A'; i<='F'; i++)	a[i]=char(i);
+
+	for(int i=0; i<='F'; i++)	if(i<=9 || i>='A')
+		for(int j=0; j<='F'; j++)	if(j<=9 || j>='A')
+			x[a[i]][a[j]]=a[i], y[a[i]][a[j]]=a[j];
+	
+	x[a[0]][a[5]]=a[0], y[a[0]][a[5]]=a[9];
+	x[a[0]][a[7]]=a[7], y[a[0]][a[7]]=a['F'];
+	
+	x[a[1]][a[6]]=a[0], y[a[1]][a[6]]=a[8];
+	
+	x[a[2]][a[5]]=a[0], y[a[2]][a[5]]=a['A'];
+	x[a[2]][a[6]]=a[1], y[a[2]][a[6]]=a[7];
+	x[a[2]][a[7]]=a[1], y[a[2]][a[7]]=a['B'];
+	x[a[2]][a['D']]=a[0], y[a[2]][a['D']]=a[5];
+	x[a[2]][a['E']]=a[0], y[a[2]][a['E']]=a[6];
+	x[a[2]][a['F']]=a[0], y[a[2]][a['F']]=a[7];
+	
+	x[a[3]][a[2]]=a[1], y[a[3]][a[2]]=a[6];
+	x[a[3]][a[7]]=a[0], y[a[3]][a[7]]=a[4];
+	x[a[3]][a['C']]=a[1], y[a[3]][a['C']]=a[4];
+	x[a[3]][a['D']]=a[1], y[a[3]][a['D']]=a[5];
+	x[a[3]][a['F']]=a[1], y[a[3]][a['F']]=a['A'];
+	
+	x[a[4]][a[0]]=a[2], y[a[4]][a[0]]=a[0];
+	x[a[4]][a['A']]=a[2], y[a[4]][a['A']]=a['E'];
+	x[a[4]][a['B']]=a[3], y[a[4]][a['B']]=a['C'];
+	x[a[4]][a['C']]=a[2], y[a[4]][a['D']]=a[8];
+	x[a[4]][a['E']]=a[2], y[a[4]][a['E']]=a['B'];
+	x[a[4]][a['F']]=a[7], y[a[4]][a['F']]=a['C'];
+
+	x[a[5]][a[0]]=a[2], y[a[5]][a[0]]=a[6];
+	x[a[5]][a['A']]=a[2], y[a[5]][a['A']]=a[1];
+	x[a[5]][a['B']]=a[2], y[a[5]][a['B']]=a[4];
